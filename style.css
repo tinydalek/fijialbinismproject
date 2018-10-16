@@ -1,0 +1,57 @@
+/*
+Theme Name: tinydalek-bootstrap
+Theme URI: 
+Description: This is outstanding WP theme developed for Bootstrap 4
+Author: Esther Trenowden
+Author URI: https:/tinydalek.com
+Version: 1.0
+*/
+
+  .page-footer {
+    background-color: #114A7C; }
+  
+  .blue-gradient {
+    background: -webkit-linear-gradient(50deg, #45cafc, #303f9f) !important;
+    background: -o-linear-gradient(50deg, #45cafc, #303f9f) !important;
+    background: linear-gradient(40deg, #45cafc, #303f9f) !important; }
+  
+  .card-intro {
+    margin-top: 67px; }
+    .card-intro .card-body {
+      -webkit-border-radius: 0 !important;
+      border-radius: 0 !important; }
+
+  .navbar {
+    height: 90px;
+  }
+
+  .navbar-brand {
+    height: 80px;
+  }
+
+  .nav-item:first-child {
+    margin-left: 120px; 
+  }
+
+  .nav-item {
+    margin-left: 30px;
+  }
+  
+  .navbar-collapse {
+    background-color: white;
+    border-radius: 10px;
+  }
+
+  .sidenav {
+  width: 130px;
+    position: fixed;
+    z-index: 1;
+    top: 20px;
+    left: 10px;
+    background: #eee;
+    overflow-x: hidden;
+    padding: 8px 0;
+  }
+
+  .pagination .page-item.active .page-link {
+    background-color: #09c; }
