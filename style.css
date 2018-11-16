@@ -1,7 +1,7 @@
 /*
 Theme Name: tinydalek-bootstrap
 Theme URI: 
-Description: This is outstanding WP theme developed for Bootstrap 4
+Description: This is a WP theme developed for Bootstrap 4
 Author: Esther Trenowden
 Author URI: https:/tinydalek.com
 Version: 1.0
@@ -40,17 +40,6 @@ Version: 1.0
   .navbar-collapse {
     background-color: white;
     border-radius: 10px;
-  }
-
-  .sidenav {
-  width: 130px;
-    position: fixed;
-    z-index: 1;
-    top: 20px;
-    left: 10px;
-    background: #eee;
-    overflow-x: hidden;
-    padding: 8px 0;
   }
 
   .pagination .page-item.active .page-link {

@@ -1,47 +1,29 @@
+<?php  get_header();
+require_once('components/navbar.inc.php');
+echo do_shortcode("[ic_add_posts category='category-slug']");
+?>
+
 <!--Main Navigation-->
 <header>
 
-<?php get_header();
-require_once('components/navbar.inc.php');
-?>
     <!-- Intro -->
-    <div class="card card-intro blue-gradient">
+    <div class="card card-intro blue-gradient mb-3">
 
-        <div class="card-body white-text rgba-black-light text-center pt-2 pb-2">
+        <div class="card-body white-text rgba-black-light pt-5 pb-4">
 
-            <div id="carousel-images" class="carousel slide" data-ride="carousel">
-            
-                <!-- Indicators -->
-                <ol class="carousel-indicators">
-                    <li data-target="#carousel-images" data-slide-to="0" class="active"></li>
-                    <li data-target="#carousel-images" data-slide-to="1"></li>
-                    <li data-target="#carousel-images" data-slide-to="2"></li>
-                    <li data-target="#carousel-images" data-slide-to="3"></li>
-                </ol>
+            <!--Grid row-->
+            <div class="row d-flex justify-content-center">
 
-                <!-- Wrapper for slides -->
-                <div class="carousel-inner" role="listbox">
-                <?php $slider = get_posts(array('post_type' => 'slider', 'posts_per_page' => 4)); ?>
-                <?php $count = 0; ?>
-                <?php foreach($slider as $slide): ?>
-                
-                    <div class="carousel-item <?php echo ($count == 0) ? 'active' : ''; ?>">
-                        <img class="img-responsive" src="<?php echo wp_get_attachment_url( get_post_thumbnail_id($slide->ID)) ?>">
-                    </div>
-                    <?php $count++; ?>
-                    <?php endforeach; ?>
+                <!--Grid column-->
+                <div class="col-md-9">
+
+                    <h1 class="font-weight-bold mb-4"><?php foreach((get_the_category()) as $category) { echo $category->cat_name . ' '; } ?></h1>
+
                 </div>
+                <!--Grid column-->
 
-                <!-- Controls -->
-                <a class="left carousel-control" href="#carousel-images" role="button" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="right carousel-control" href="#carousel-images" role="button" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
             </div>
+            <!--Grid row-->
 
         </div>
 
@@ -53,91 +35,79 @@ require_once('components/navbar.inc.php');
 
 <!--Main layout-->
 <main>
-    <div class="container-fluid">
+    <div class="container">
 
-
-        <!--Section: Articles-->
-        <section class="container">
+        <!--Section: Post-->
+        <section class="mt-3">
 
             <!--Grid row-->
             <div class="row wow fadeIn">
-            <?php
-            if ( have_posts() ) {
-            $counter = 1;
-            while ( have_posts() ) {
-            the_post();
-            ?>
 
                 <!--Grid column-->
-                <div class="col-lg-4 col-md-12 mt-5 mb-5">
+                <div class="col-md-4 mt-2 mb-4">
 
-                    <!--Excerpt-->
-                    <h4 class="mb-3 font-weight-bold dark-grey-text">
-                        <strong><?php the_title(); ?></strong>
-                    </h4>
-                    <p class="grey-text"><?php the_excerpt(); ?></p>
-                    <a href="<?php echo get_permalink() ?>" class="btn btn-outline-dark btn-rounded btn-md">Read more</a>
-            
+                    <!-- Featured image -->
+                    <?php the_post_thumbnail( 'large', array( 'class'=> 'img-fluid z-depth-1-half mb-4')); ?>
+
                 </div>
                 <!--Grid column-->
-                <div class="col-lg-2 col-md-12 mt-5 mb-5">
+
+                <!--Grid column-->
+                <div class="col-md-6 mt-2 mb-4">
                     
-                    <!--Featured image-->
-                    <div class="view overlay hm-white-slight rounded z-depth-2 mb-4">
-                        <?php the_post_thumbnail( 'medium-large', array( 'class'=> 'img-fluid')); ?>
-                        <a href="<?php echo get_permalink() ?>">
-                            <div class="mask"></div>
-                        </a>
+                    <h3 class="font-weight-bold mb-4"><?php the_title() ?></h3>
+                    <div class="post-content">
+                        <?php the_content(); ?>
                     </div>
 
                 </div>
-
                 <!--Grid column-->
-                <?php
-                if ($counter % 3 == 0) {
-                ?>
-            
-            </div>
 
-            <!--Grid row-->
-            <!--Grid dynamic row-->
-            <div class="row wow fadeIn">
-            <?php
-            }
-            $counter++;
-            } // end while
-            } // end if
-            ?>
+                
+
             </div>
             <!--Grid row-->
 
         </section>
-        <!--Section: Articles-->
+        <!--Section: Post-->
 
-        <!--Grid column-->
-        <div class="col-md-4 mb-4">
+        <!--Section: Post-->
+        <section class="mt-3">
 
-            <!-- Sticky content -->
-            <div class="sticky">
-            
-                <!--Section: Dynamic Content Wrapper-->
-                <section>
-                    <div id="dynamic-content"></div>
-                </section>
-    
-                <!--Section: Dynamic Content Wrapper-->
-                <!--Sidebar-->
-                <?php if ( is_active_sidebar( 'sidebar' ) ) : ?>
-                <?php dynamic_sidebar( 'sidebar' ); ?>
-                <?php endif; ?>
-                <!--/.Sidebar-->
+            <!--Grid row-->
+            <div class="row wow fadeIn">
+
+                <!--Grid column-->
+                <div class="col-md-6 mt-2 mb-4">
+        
+                    <h3 class="font-weight-bold mb-4"><?php the_title() ?></h3>
+                    <div class="post-content">
+                        <?php the_content(); ?>
+                    </div>
+
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-md-4 mt-2 mb-4">
+
+                    <!-- Featured image -->
+                    <?php the_post_thumbnail( 'large', array( 'class'=> 'img-fluid z-depth-1-half mb-4')); ?>
+
+                </div>
+                <!--Grid column-->    
 
             </div>
-            <!-- Sticky content -->
+            <!--Grid row-->
 
-        </div>
+        </section>
+        <!--Section: Post-->
 
+
+    </div>
 </main>
 <!--Main layout-->
 
-<?php get_footer(); ?>
+<?php
+get_footer();
+?>

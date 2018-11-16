@@ -1,8 +1,6 @@
 <?php  get_header();
 require_once('components/navbar.inc.php');
-if ( have_posts() ) {
-while ( have_posts() ) {
-the_post();
+echo do_shortcode("[ic_add_posts category='category-slug']");
 ?>
 
 <!--Main Navigation-->
@@ -46,7 +44,7 @@ the_post();
             <div class="row wow fadeIn">
 
                 <!--Grid column-->
-                <div class="col-md-3 mt-2 mb-4">
+                <div class="col-md-4 mt-2 mb-4">
 
                     <!-- Featured image -->
                     <?php the_post_thumbnail( 'large', array( 'class'=> 'img-fluid z-depth-1-half mb-4')); ?>
@@ -62,30 +60,7 @@ the_post();
                     </div>
 
                 </div>
-                <!--Grid column-->
-
-                <!--Grid column-->
-                <div class="sidenav col-lg-3 col-md-3 col-sm-12 mb-4">
-
-                    <!-- Sticky content -->
-                    <div class="sticky">
-
-                        <!--Section: Dynamic Content Wrapper-->
-                        <section>
-                            <div id="dynamic-content"></div>
-                        </section>
-
-                        <!--Section: Dynamic Content Wrapper-->
-                        <!--Sidebar-->
-                        <?php if ( is_active_sidebar( 'sidebar' ) ) : ?>
-                        <?php dynamic_sidebar( 'sidebar' ); ?>
-                        <?php endif; ?>
-                        <!--/.Sidebar-->
-
-                    </div>
-                    <!-- Sticky content -->
-
-                </div>
+                <!--Grid column-->                
 
             </div>
             <!--Grid row-->
@@ -98,7 +73,5 @@ the_post();
 <!--Main layout-->
 
 <?php
-} // end while
-} // end if
 get_footer();
 ?>
