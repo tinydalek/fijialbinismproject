@@ -1,6 +1,8 @@
 <?php  get_header();
 require_once('components/navbar.inc.php');
-echo do_shortcode("[ic_add_posts category='category-slug']");
+if ( have_posts() ) {
+while ( have_posts() ) {
+the_post();
 ?>
 
 <!--Main Navigation-->
@@ -73,5 +75,7 @@ echo do_shortcode("[ic_add_posts category='category-slug']");
 <!--Main layout-->
 
 <?php
+} // end while
+} // end if
 get_footer();
 ?>

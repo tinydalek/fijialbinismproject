@@ -1,6 +1,8 @@
 <?php  get_header();
 require_once('components/navbar.inc.php');
-echo do_shortcode("[ic_add_posts category='category-slug']");
+if ( have_posts() ) {
+while ( have_posts() ) {
+the_post();
 ?>
 
 <!--Main Navigation-->
@@ -17,7 +19,7 @@ echo do_shortcode("[ic_add_posts category='category-slug']");
                 <!--Grid column-->
                 <div class="col-md-9">
 
-                    <h1 class="font-weight-bold mb-4"><?php foreach((get_the_category()) as $category) { echo $category->cat_name . ' '; } ?></h1>
+                    <h1 class="font-weight-bold mb-4"><?php the_title() ?></h1>
 
                 </div>
                 <!--Grid column-->
@@ -54,60 +56,26 @@ echo do_shortcode("[ic_add_posts category='category-slug']");
 
                 <!--Grid column-->
                 <div class="col-md-6 mt-2 mb-4">
-                    
-                    <h3 class="font-weight-bold mb-4"><?php the_title() ?></h3>
+
                     <div class="post-content">
                         <?php the_content(); ?>
                     </div>
 
                 </div>
-                <!--Grid column-->
-
-                
+                <!--Grid column-->                
 
             </div>
             <!--Grid row-->
 
         </section>
         <!--Section: Post-->
-
-        <!--Section: Post-->
-        <section class="mt-3">
-
-            <!--Grid row-->
-            <div class="row wow fadeIn">
-
-                <!--Grid column-->
-                <div class="col-md-6 mt-2 mb-4">
-        
-                    <h3 class="font-weight-bold mb-4"><?php the_title() ?></h3>
-                    <div class="post-content">
-                        <?php the_content(); ?>
-                    </div>
-
-                </div>
-                <!--Grid column-->
-
-                <!--Grid column-->
-                <div class="col-md-4 mt-2 mb-4">
-
-                    <!-- Featured image -->
-                    <?php the_post_thumbnail( 'large', array( 'class'=> 'img-fluid z-depth-1-half mb-4')); ?>
-
-                </div>
-                <!--Grid column-->    
-
-            </div>
-            <!--Grid row-->
-
-        </section>
-        <!--Section: Post-->
-
 
     </div>
 </main>
 <!--Main layout-->
 
 <?php
+} // end while
+} // end if
 get_footer();
 ?>
