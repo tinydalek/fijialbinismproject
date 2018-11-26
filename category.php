@@ -36,16 +36,14 @@ require_once('components/navbar.inc.php');
 <main>
     <div class="container">
 
-    <?php query_posts('showposts=0'); ?>                    
-    <?php $i = 1; ?>
-    <?php if (have_posts()) : ?>
-    <?php while (have_posts()) : the_post(); ?>
+    <?php if (have_posts()) {
+        while (have_posts()) { 
+            the_post(); 
+    ?>
 
 
         <!--Section: Post-->
         <section class="mt-3">
-
-        <?php if(($i % 2) == 0) { ?>
 
             <!--Grid row-->
             <div class="row wow fadeIn">
@@ -81,8 +79,6 @@ require_once('components/navbar.inc.php');
         <!--Section: Post-->
         <section class="mt-3">
 
-        <?php } elseif (($i % 2) !== 0) { ?>
-
             <!--Grid row-->
             <div class="row wow fadeIn">
 
@@ -112,10 +108,10 @@ require_once('components/navbar.inc.php');
         </section>
         <!--Section: Post-->
 
-    <?php } ?>
-    <?php $i++; ?>
-    <?php endwhile; ?>
-    <?php endif; ?>
+    <?php 
+    } // end while
+    } // end if
+    ?>
 
     </div>
 </main>

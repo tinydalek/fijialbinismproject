@@ -113,5 +113,13 @@ function custom_bootstrap_slider() {
 	register_post_type( 'slider', $args );
 }
 
+/* Display Posts in Ascending Order */
+function prefix_modify_query_order( $query ) {
+	if ( is_main_query() ) {
+	  $query->set( 'orderby', 'date' );
+	  $query->set( 'order', 'ASC' );
+	}
+  }
+  add_action( 'pre_get_posts', 'prefix_modify_query_order' );
 
 ?>
