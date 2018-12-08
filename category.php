@@ -29,93 +29,99 @@ require_once('components/navbar.inc.php');
     </div>
     <!-- Intro -->
 
-</header>
-<!--Main Navigation-->
+    </header>
+    <!--Main Navigation-->
 
-<!--Main layout-->
-<main>
-    <div class="container">
+    <!--Main layout-->
+    <main>
+        <div class="container">
 
-    <?php if (have_posts()) {
-        while (have_posts()) { 
-            the_post(); 
-    ?>
+        <?php $args = array(
+            'category' => 'get_the_category()',
+        );
+        $posts_array = get_posts( $args ); ?>
+                   
+        <?php $i = 1; ?>
+        <?php if (have_posts()) : ?>
+        <?php while (have_posts()) : the_post(); ?>
 
 
-        <!--Section: Post-->
-        <section class="mt-3">
+            <!--Section: Post-->
+            <section class="mt-3">
 
-            <!--Grid row-->
-            <div class="row wow fadeIn">
+            <?php if(($i % 2) == 0) { ?>
 
-                <!--Grid column-->
-                <div class="col-md-4 mt-2 mb-4">
+                <!--Grid row-->
+                <div class="row wow fadeIn">
 
-                    <!-- Featured image -->
-                    <?php the_post_thumbnail( 'large', array( 'class'=> 'img-fluid z-depth-1-half mb-4')); ?>
+                    <!--Grid column-->
+                    <div class="col-md-4 mt-2 mb-4">
 
-                </div>
-                <!--Grid column-->
+                        <!-- Featured image -->
+                        <?php the_post_thumbnail( 'large', array( 'class'=> 'img-fluid z-depth-1-half mb-4')); ?>
 
-                <!--Grid column-->
-                <div class="col-md-6 mt-2 mb-4">
+                    </div>
+                    <!--End Grid column-->
+
+                    <!--Grid column-->
+                    <div class="col-md-6 mt-2 mb-4">
                     
-                    <h3 class="font-weight-bold mb-4"><?php the_title() ?></h3>
-                    <div class="post-content">
-                        <?php the_content(); ?>
-                    </div>
+                        <h3 class="font-weight-bold mb-4"><?php the_title() ?></h3>
+                        <div class="post-content">
+                            <?php the_content(); ?>
+                        </div>
+
+                        </div>
+                    <!--End Grid column-->        
 
                 </div>
-                <!--Grid column-->
+                <!--End Grid row-->
 
-                
+            </section>
+            <!--End Section: Post-->
 
-            </div>
-            <!--Grid row-->
+            <!--Section: Post-->
+            <section class="mt-3">
 
-        </section>
-        <!--Section: Post-->
+            <?php } elseif (($i % 2) !== 0) { ?>
 
-        <!--Section: Post-->
-        <section class="mt-3">
+                <!--Grid row-->
+                <div class="row wow fadeIn">
 
-            <!--Grid row-->
-            <div class="row wow fadeIn">
-
-                <!--Grid column-->
-                <div class="col-md-6 mt-2 mb-4">
+                    <!--Grid column-->
+                    <div class="col-md-6 mt-2 mb-4">
         
-                    <h3 class="font-weight-bold mb-4"><?php the_title() ?></h3>
-                    <div class="post-content">
-                        <?php the_content(); ?>
+                        <h3 class="font-weight-bold mb-4"><?php the_title() ?></h3>
+                        <div class="post-content">
+                            <?php the_content(); ?>
+                        </div>
+
                     </div>
+                    <!--End Grid column-->
+
+                    <!--Grid column-->
+                    <div class="col-md-4 mt-2 mb-4">
+
+                        <!-- Featured image -->
+                        <?php the_post_thumbnail( 'large', array( 'class'=> 'img-fluid z-depth-1-half mb-4')); ?>
+
+                    </div>
+                    <!--End Grid column-->    
 
                 </div>
-                <!--Grid column-->
+                <!--End Grid row-->
 
-                <!--Grid column-->
-                <div class="col-md-4 mt-2 mb-4">
+            </section>
+            <!--End Section: Post-->
 
-                    <!-- Featured image -->
-                    <?php the_post_thumbnail( 'large', array( 'class'=> 'img-fluid z-depth-1-half mb-4')); ?>
+        <?php } ?>
+        <?php $i++; ?>
+        <?php endwhile; ?>
+        <?php endif; ?>
 
-                </div>
-                <!--Grid column-->    
-
-            </div>
-            <!--Grid row-->
-
-        </section>
-        <!--Section: Post-->
-
-    <?php 
-    } // end while
-    } // end if
-    ?>
-
-    </div>
-</main>
-<!--Main layout-->
+        </div>
+    </main>
+    <!--End Main layout-->
 
 <?php
 get_footer();

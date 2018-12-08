@@ -94,7 +94,7 @@ require_once('components/navbar.inc.php');
 
                 <!--Grid column-->
                 <?php
-                if ($counter % 3 == 0) {
+                if ($counter % 6 == 0) {
                 ?>
             
             </div>

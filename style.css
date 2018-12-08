@@ -44,3 +44,7 @@ Version: 1.0
 
   .pagination .page-item.active .page-link {
     background-color: #09c; }
+
+  .even {
+    background-color: black;
+  }
