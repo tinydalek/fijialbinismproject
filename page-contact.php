@@ -2,9 +2,9 @@
 require_once('components/navbar.inc.php');
 if ( have_posts() ) {
     while ( have_posts() ) {
-    the_post();
-    ?>
-    
+    the_post();   
+?>
+  
     <!-- Header -->
     <header>
     
@@ -47,7 +47,7 @@ if ( have_posts() ) {
     
     
                     <!-- Grid column -->
-                    <div class="col-md-6 mt-2 mb-4">
+                    <div class="col-md-8 mt-2 mb-4">
     
                         <div class="post-content">
                             <?php the_content(); ?>
@@ -72,59 +72,7 @@ if ( have_posts() ) {
             </section>
             <!-- End Section: Post-->
 
-            <!-- Section: Form -->
-            <section class="mt-3">
-    
-                <!-- Grid row -->
-                <div class="row wow fadeIn">
 
-                    <h3><strong>Send an Enquiry</strong></h3>
-
-                    <!-- Grid column -->
-                    <div class="col-md-10 mt-4 mb-4" id="respond">
-                    <?php echo $response; ?>
-
-                        <form class="form-horizontal" onsubmit="return validateForm()" action="<?php the_permalink(); ?>" method="post">
-    
-                            <div class="form-group row">
-                                <label class="col-md-2" for="name"> Full Name: </label>
-                                <div class="col-md-6">
-                                    <input class="form-control" type="text" name="message_name" value="<?php echo esc_attr($_POST['message_name']); ?>" autofocus>
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label class="col-md-2" for="message_email"> Email: </label>
-                                <div class="col-md-6">
-                                    <input class="form-control" type="text" name="message_email" value="<?php echo esc_attr($_POST['message_email']); ?>">
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label class="col-md-2" for="message_text"> Message: </label>
-                                <div class="col-md-6"> 
-                                    <textarea class="form-control" rows="5" type="text" name="message_text"><?php echo esc_textarea($_POST['message_text']); ?></textarea>
-                                </div>
-                            </div>
-
-                            <input type="hidden" name="submitted" value="1">
-
-                            <div class="form-group row text-center">
-                                <div class="col-sm-10">
-                                    <button type="submit" class="btn btn-outline-dark">Submit</button>
-                                </div>
-                            </div>
-        
-                        </form>
-
-                    </div>
-                    <!-- End Grid column -->                
-
-                </div>
-                <!-- End Grid row -->
-
-            </section>
-            <!-- End Section: Form -->
     
         </div>
     </main>

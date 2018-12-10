@@ -42,23 +42,5 @@ Version: 1.0
     border-radius: 10px;
   }
 
-  .pagination .page-item.active .page-link {
-    background-color: #09c; }
 
-  .error{
-    padding: 5px 9px;
-    border: 1px solid red;
-    color: red;
-    border-radius: 3px;
-  }
-   
-  .success{
-    padding: 5px 9px;
-    border: 1px solid green;
-    color: green;
-    border-radius: 3px;
-  }
-   
-  form span{
-    color: red;
   }
