@@ -51,6 +51,7 @@ if ( have_posts() ) {
     
                         <div class="post-content">
                             <?php the_content(); ?>
+                            <a href="https://www.supportstvincents.com.au/ways-to-give/donate/?donation=healthy-skin-fiji-project" class="btn btn-outline-dark"  role="button">Make a Donation</a>
                         </div>
     
                     </div>

@@ -40,8 +40,8 @@
             <!-- Right -->
             <ul class="navbar-nav nav-flex-icons">
                 <li class="nav-item">
-                    <button class="btn btn-outline-dark" type="button">Donate
-                    </button>
+                    <a href="/fijialbinismproject/donate/" class="btn btn-outline-dark" role="button">Donate
+                    </a>
                 </li>
             </ul>
         </div>
