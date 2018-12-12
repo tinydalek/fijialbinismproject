@@ -1,10 +1,10 @@
-<!--Main Navigation-->
+<!-- Header-->
 <header>
 
 <?php get_header();
 require_once('components/navbar.inc.php');
 ?>
-    <!-- Intro -->
+    <!-- Intro: Carousel Slider -->
     <div class="card card-intro blue-gradient">
 
         <div class="card-body white-text rgba-black-light text-center pt-2 pb-2">
@@ -46,75 +46,125 @@ require_once('components/navbar.inc.php');
         </div>
 
     </div>
-    <!-- Intro -->
+    <!-- End Intro: Carousel Slider -->
 
 </header>
-<!--Main Navigation-->
+<!-- End Header -->
 
-<!--Main layout-->
+<!-- Main layout -->
 <main>
+
     <div class="container-fluid">
 
-
-        <!--Section: Articles-->
-        <section class="container">
-
-            <!--Grid row-->
-            <div class="row wow fadeIn">
-            <?php
-            if ( have_posts() ) {
-            $counter = 1;
-            while ( have_posts() ) {
-            the_post();
-            ?>
-
-                <!--Grid column-->
-                <div class="col-lg-4 col-md-8 mt-5 mb-4">
-
-                    <!--Excerpt-->
-                    <h4 class="mb-3 font-weight-bold dark-grey-text">
-                        <strong><?php the_title(); ?></strong>
-                    </h4>
-                    <p class="grey-text"><?php the_excerpt(); ?></p>
-                    <a href="<?php echo get_permalink() ?>" class="btn btn-outline-dark btn-rounded btn-md">Read more</a>
+        <!-- Grid row -->
+        <div class="row wow fadeIn">
             
-                </div>
-                <!--Grid column-->
-                <div class="col-lg-2 col-md-2 mt-5 mb-5">
-                    
-                    <!--Featured image-->
-                    <div class="view overlay hm-white-slight rounded z-depth-2 mb-4">
-                        <?php the_post_thumbnail( 'medium-large', array( 'class'=> 'img-fluid')); ?>
-                        <a href="<?php echo get_permalink() ?>">
-                            <div class="mask"></div>
-                        </a>
+            <!-- Grid column: Featured Content -->
+            <div class="col-md-10 mt-4 mb-4">
+    
+                <!-- Grid row -->
+                <div class="row">
+      
+                    <div class="col-md-4 mb-3">
+                        
+                        <div class="card">
+                            <img class="card-img-top" src="" alt="">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="btn btn-outline-dark">Go somewhere</a>
+                            </div>
+                        </div>
+
+                    </div>
+      
+                    <div class="col-md-4 mb-3">
+                        
+                        <div class="card">
+                            <img class="card-img-top" src="" alt="">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="btn btn-outline-dark">Go somewhere</a>
+                            </div>
+                        </div>
+
                     </div>
 
+                    <div class="col-md-4 mb-3">
+                        
+                        <div class="card">
+                            <img class="card-img-top" src="" alt="">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="btn btn-outline-dark">Go somewhere</a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        
+                        <div class="card">
+                            <img class="card-img-top" src="" alt="">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="btn btn-outline-dark">Go somewhere</a>
+                            </div>
+                        </div>
+
+                    </div>  
+
+                    <div class="col-md-4 mb-3">
+                        
+                        <div class="card">
+                            <img class="card-img-top" src="" alt="">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="btn btn-outline-dark">Go somewhere</a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        
+                        <div class="card">
+                            <img class="card-img-top" src="" alt="">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="btn btn-outline-dark">Go somewhere</a>
+                            </div>
+                        </div>
+
+                    </div>                                      
+                
                 </div>
-
-                <!--Grid column-->
-                <?php
-                if ($counter % 6 == 0) {
-                ?>
-            
+                <!-- End Grid row -->
+  
             </div>
+            <!-- End Grid column: Featured Content -->
 
-            <!--Grid row-->
-            <!--Grid dynamic row-->
-            <div class="row wow fadeIn">
-            <?php
-            }
-            $counter++;
-            } // end while
-            } // end if
-            ?>
+            <!-- Grid column: Sidebar -->
+            <div class="col-md-2 mt-4 mb-4">
+
+                    <?php if ( is_active_sidebar( 'sidebar' ) ) : ?>
+                    <?php dynamic_sidebar( 'sidebar' ); ?>
+                    <?php endif; ?>
+
             </div>
-            <!--Grid row-->
+            <!-- End Grid column: Sidebar -->
 
-        </section>
-        <!--Section: Articles-->
+        </div>
+        <!-- End Grid row -->
+    
+    </div>
 
 </main>
-<!--Main layout-->
+<!-- End Main layout -->
 
 <?php get_footer(); ?>
