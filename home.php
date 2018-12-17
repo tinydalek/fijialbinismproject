@@ -68,7 +68,7 @@ require_once('components/navbar.inc.php');
                 <?php
                 $args = array(
                 // Arguments for your query.
-                'tag' => 'homepage-feature-1, homepage-feature-2, homepage-feature-3'
+                'tag' => 'homepage-feature-1'
                 );
   
                 // Custom query.
@@ -105,6 +105,89 @@ require_once('components/navbar.inc.php');
                     // Restore original post data.
                     wp_reset_postdata();
                     ?>
+
+                    <?php
+                    $args = array(
+                    // Arguments for your query.
+                    'tag' => 'homepage-feature-2'
+                    );
+  
+                    // Custom query.
+                    $query = new WP_Query( $args );
+                    // Check that we have query results.
+                    if ( $query->have_posts() ) {
+                    // Start looping over the query results.
+                    while ( $query->have_posts() ) {
+                    $query->the_post(); 
+                    ?>
+  
+                    <!-- Grid column: Featured Posts -->
+                    <div class="col-md-6 mb-3">
+
+                        <div class="card text-center">
+                            
+                            <div class="card-img-top">
+                                <?php the_post_thumbnail( array('class'=> 'img-responsive z-depth-1-half mt-2')); ?>
+                            </div>
+                    
+                            <div class="card-body">
+                                <h5 class="card-title"><strong><?php the_title(); ?></strong></h5>
+                                <p class="card-text"><?php the_excerpt(); ?></p>
+                                <a href="#" class="btn btn-outline-dark">Read more</a>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- End Grid column: Featured Posts -->
+   
+                    <?php
+                    } // end while
+                    } // end if 
+                    // Restore original post data.
+                    wp_reset_postdata();
+                    ?>
+
+                    <?php
+                    $args = array(
+                    // Arguments for your query.
+                    'tag' => 'homepage-feature-3'
+                    );
+  
+                    // Custom query.
+                    $query = new WP_Query( $args );
+                    // Check that we have query results.
+                    if ( $query->have_posts() ) {
+                    // Start looping over the query results.
+                    while ( $query->have_posts() ) {
+                    $query->the_post(); 
+                    ?>
+  
+                    <!-- Grid column: Featured Posts -->
+                    <div class="col-md-6 mb-3">
+
+                        <div class="card text-center">
+                            
+                            <div class="card-img-top">
+                                <?php the_post_thumbnail( array('class'=> 'img-responsive z-depth-1-half mt-2')); ?>
+                            </div>
+                    
+                            <div class="card-body">
+                                <h5 class="card-title"><strong><?php the_title(); ?></strong></h5>
+                                <p class="card-text"><?php the_excerpt(); ?></p>
+                                <a href="#" class="btn btn-outline-dark">Read more</a>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- End Grid column: Featured Posts -->
+   
+                    <?php
+                    } // end while
+                    } // end if 
+                    // Restore original post data.
+                    wp_reset_postdata();
+                    ?>
+
 
                     <?php
                     $args = array(
