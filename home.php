@@ -64,37 +64,89 @@ require_once('components/navbar.inc.php');
 
                 <!-- Grid row -->
                 <div class="row">
-
-                <?php if ( have_posts() ) {
-                $counter = 1;
-                while ( have_posts() ) {
-                the_post(); ?>
-
+                
+                <?php
+                $args = array(
+                // Arguments for your query.
+                'tag' => 'homepage-feature-1, homepage-feature-2, homepage-feature-3'
+                );
+  
+                // Custom query.
+                $query = new WP_Query( $args );
+                // Check that we have query results.
+                if ( $query->have_posts() ) {
+                // Start looping over the query results.
+                while ( $query->have_posts() ) {
+                $query->the_post(); 
+                ?>
+  
                     <!-- Grid column: Featured Posts -->
                     <div class="col-md-6 mb-3">
-   
+
                         <div class="card text-center">
+                            
                             <div class="card-img-top">
                                 <?php the_post_thumbnail( array('class'=> 'img-responsive z-depth-1-half mt-2')); ?>
                             </div>
+                    
                             <div class="card-body">
                                 <h5 class="card-title"><strong><?php the_title(); ?></strong></h5>
-                                    <p class="card-text"><?php the_excerpt(); ?></p>
+                                <p class="card-text"><?php the_excerpt(); ?></p>
                                 <a href="#" class="btn btn-outline-dark">Read more</a>
                             </div>
                         </div>
 
                     </div>
                     <!-- End Grid column: Featured Posts -->
+   
+                    <?php
+                    } // end while
+                    } // end if 
+                    // Restore original post data.
+                    wp_reset_postdata();
+                    ?>
 
+                    <?php
+                    $args = array(
+                    // Arguments for your query.
+                    'pagename' => 'donate'
+                    );
+  
+                    // Custom query.
+                    $query = new WP_Query( $args );
+                    // Check that we have query results.
+                    if ( $query->have_posts() ) {
+                    // Start looping over the query results.
+                    while ( $query->have_posts() ) {
+                    $query->the_post(); 
+                    ?>
+  
+                    <!-- Grid column: Featured Posts -->
+                    <div class="col-md-6 mb-3">
+
+                        <div class="card text-center">
+                            
+                            <div class="card-img-top">
+                                <?php the_post_thumbnail( array('class'=> 'img-responsive z-depth-1-half mt-2')); ?>
+                            </div>
+                    
+                            <div class="card-body">
+                                <h5 class="card-title"><strong><?php the_title(); ?></strong></h5>
+                                <p class="card-text"><?php the_excerpt(); ?></p>
+                                <a href="#" class="btn btn-outline-dark">Donate</a>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- End Grid column: Featured Posts -->
+   
                 <?php
-                if ($counter % 6  == 0) {
-         
-                }
-                $counter++;
                 } // end while
-                } // end if
+                } // end if 
+                // Restore original post data.
+                wp_reset_postdata();
                 ?>
+
 
                 </div>
                 <!-- End Grid row -->
@@ -107,9 +159,9 @@ require_once('components/navbar.inc.php');
             <!-- Grid column: Sidebar -->
             <div class="col-md-3 mt-4 mb-4">
 
-                    <?php if ( is_active_sidebar( 'sidebar' ) ) : ?>
-                    <?php dynamic_sidebar( 'sidebar' ); ?>
-                    <?php endif; ?>
+                <?php if ( is_active_sidebar( 'sidebar' ) ) : ?>
+                <?php dynamic_sidebar( 'sidebar' ); ?>
+                <?php endif; ?>
 
             </div>
             <!-- End Grid column: Sidebar -->
