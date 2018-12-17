@@ -21,7 +21,7 @@ require_once('components/navbar.inc.php');
 
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner" role="listbox">
-                <?php $slider = get_posts(array('post_type' => 'slider', 'posts_per_page' => 4)); ?>
+                <?php $slider = get_posts(array('post_type' => 'slider', 'posts_per_page' => 4 )); ?>
                 <?php $count = 0; ?>
                 <?php foreach($slider as $slide): ?>
                 
@@ -54,103 +54,58 @@ require_once('components/navbar.inc.php');
 <!-- Main layout -->
 <main>
 
-    <div class="container-fluid">
+    <div class="container">
 
         <!-- Grid row -->
         <div class="row wow fadeIn">
             
             <!-- Grid column: Featured Content -->
-            <div class="col-md-10 mt-4 mb-4">
-    
+            <div class="col-md-9 mt-4 mb-4">
+
                 <!-- Grid row -->
                 <div class="row">
-      
-                    <div class="col-md-4 mb-3">
-                        
-                        <div class="card">
-                            <img class="card-img-top" src="" alt="">
+
+                <?php if ( have_posts() ) {
+                $counter = 1;
+                while ( have_posts() ) {
+                the_post(); ?>
+
+                    <!-- Grid column: Featured Posts -->
+                    <div class="col-md-6 mb-3">
+   
+                        <div class="card text-center">
+                            <div class="card-img-top">
+                                <?php the_post_thumbnail( array('class'=> 'img-responsive z-depth-1-half mt-2')); ?>
+                            </div>
                             <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-outline-dark">Go somewhere</a>
+                                <h5 class="card-title"><strong><?php the_title(); ?></strong></h5>
+                                    <p class="card-text"><?php the_excerpt(); ?></p>
+                                <a href="#" class="btn btn-outline-dark">Read more</a>
                             </div>
                         </div>
 
                     </div>
-      
-                    <div class="col-md-4 mb-3">
-                        
-                        <div class="card">
-                            <img class="card-img-top" src="" alt="">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-outline-dark">Go somewhere</a>
-                            </div>
-                        </div>
+                    <!-- End Grid column: Featured Posts -->
 
-                    </div>
+                <?php
+                if ($counter % 6  == 0) {
+         
+                }
+                $counter++;
+                } // end while
+                } // end if
+                ?>
 
-                    <div class="col-md-4 mb-3">
-                        
-                        <div class="card">
-                            <img class="card-img-top" src="" alt="">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-outline-dark">Go somewhere</a>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="col-md-4 mb-3">
-                        
-                        <div class="card">
-                            <img class="card-img-top" src="" alt="">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-outline-dark">Go somewhere</a>
-                            </div>
-                        </div>
-
-                    </div>  
-
-                    <div class="col-md-4 mb-3">
-                        
-                        <div class="card">
-                            <img class="card-img-top" src="" alt="">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-outline-dark">Go somewhere</a>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="col-md-4 mb-3">
-                        
-                        <div class="card">
-                            <img class="card-img-top" src="" alt="">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-outline-dark">Go somewhere</a>
-                            </div>
-                        </div>
-
-                    </div>                                      
-                
                 </div>
                 <!-- End Grid row -->
   
+    
+
             </div>
             <!-- End Grid column: Featured Content -->
 
             <!-- Grid column: Sidebar -->
-            <div class="col-md-2 mt-4 mb-4">
+            <div class="col-md-3 mt-4 mb-4">
 
                     <?php if ( is_active_sidebar( 'sidebar' ) ) : ?>
                     <?php dynamic_sidebar( 'sidebar' ); ?>

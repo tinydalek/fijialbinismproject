@@ -5,6 +5,7 @@
  */
 require_once('inc/pagination.inc.php');
 
+
 /**
  * Include CSS files
  */
@@ -21,6 +22,7 @@ function theme_enqueue_scripts() {
         }
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_scripts' );
 
+
 /**
  * Setup Theme
  */
@@ -29,6 +31,7 @@ function mdbtheme_setup() {
     add_theme_support('post-thumbnails');
 }
 add_action('after_setup_theme', 'mdbtheme_setup');
+
 
 /**
  * Register our sidebars and widgetized areas.
@@ -47,10 +50,12 @@ function mdb_widgets_init() {
   }
   add_action( 'widgets_init', 'mdb_widgets_init' );
 
+
 /** 
  * Include custom navwalker file
  */
 require_once('bs4navwalker.php');
+
 
 /**
  * Add Custom Logo Support
@@ -68,6 +73,7 @@ function themename_custom_logo_setup() {
     add_theme_support( 'custom-logo', $defaults );
 }
 add_action( 'after_setup_theme', 'themename_custom_logo_setup' );
+
 
 /** Add Bootstrap Carousel */
 add_action( 'init', 'custom_bootstrap_slider' );
@@ -112,6 +118,7 @@ function custom_bootstrap_slider() {
 
 	register_post_type( 'slider', $args );
 }
+
 
 /* Display Posts in Ascending Order */
 function prefix_modify_query_order( $query ) {
