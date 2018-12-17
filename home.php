@@ -92,7 +92,7 @@ require_once('components/navbar.inc.php');
                             <div class="card-body">
                                 <h5 class="card-title"><strong><?php the_title(); ?></strong></h5>
                                 <p class="card-text"><?php the_excerpt(); ?></p>
-                                <a href="#" class="btn btn-outline-dark">Read more</a>
+                                <a href="<?php echo get_permalink() ?>" class="btn btn-outline-dark">Read more</a>
                             </div>
                         </div>
 
@@ -133,7 +133,7 @@ require_once('components/navbar.inc.php');
                             <div class="card-body">
                                 <h5 class="card-title"><strong><?php the_title(); ?></strong></h5>
                                 <p class="card-text"><?php the_excerpt(); ?></p>
-                                <a href="#" class="btn btn-outline-dark">Read more</a>
+                                <a href="<?php echo get_permalink() ?>" class="btn btn-outline-dark">Read more</a>
                             </div>
                         </div>
 
@@ -174,7 +174,7 @@ require_once('components/navbar.inc.php');
                             <div class="card-body">
                                 <h5 class="card-title"><strong><?php the_title(); ?></strong></h5>
                                 <p class="card-text"><?php the_excerpt(); ?></p>
-                                <a href="#" class="btn btn-outline-dark">Read more</a>
+                                <a href="<?php echo get_permalink() ?>" class="btn btn-outline-dark">Read more</a>
                             </div>
                         </div>
 
@@ -215,7 +215,7 @@ require_once('components/navbar.inc.php');
                             <div class="card-body">
                                 <h5 class="card-title"><strong><?php the_title(); ?></strong></h5>
                                 <p class="card-text"><?php the_excerpt(); ?></p>
-                                <a href="#" class="btn btn-outline-dark">Read more</a>
+                                <a href="<?php echo get_permalink() ?>" class="btn btn-outline-dark">Read more</a>
                             </div>
                         </div>
 
@@ -256,7 +256,7 @@ require_once('components/navbar.inc.php');
                             <div class="card-body">
                                 <h5 class="card-title"><strong><?php the_title(); ?></strong></h5>
                                 <p class="card-text"><?php the_excerpt(); ?></p>
-                                <a href="#" class="btn btn-outline-dark">Read more</a>
+                                <a href="<?php echo get_permalink() ?>" class="btn btn-outline-dark">Read more</a>
                             </div>
                         </div>
 
@@ -297,7 +297,7 @@ require_once('components/navbar.inc.php');
                             <div class="card-body">
                                 <h5 class="card-title"><strong><?php the_title(); ?></strong></h5>
                                 <p class="card-text"><?php the_excerpt(); ?></p>
-                                <a href="#" class="btn btn-outline-dark">Donate</a>
+                                <a href="/fijialbinismproject/donate/" class="btn btn-outline-dark">Donate</a>
                             </div>
                         </div>
 
