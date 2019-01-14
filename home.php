@@ -83,7 +83,7 @@ require_once('components/navbar.inc.php');
                     <!-- Grid column: Featured Post -->
                     <div class="col-md-6 mb-3">
 
-                        <div class="card text-center">
+                        <div class="card border-0 text-center">
                             
                             <div class="card-img-top">
                                 <?php the_post_thumbnail( array('class'=> 'img-responsive z-depth-1-half mt-2')); ?>
@@ -124,7 +124,7 @@ require_once('components/navbar.inc.php');
                     <!-- Grid column: Featured Post -->
                     <div class="col-md-6 mb-3">
 
-                        <div class="card text-center">
+                        <div class="card border-0 text-center">
                             
                             <div class="card-img-top">
                                 <?php the_post_thumbnail( array('class'=> 'img-responsive z-depth-1-half mt-2')); ?>
@@ -165,7 +165,7 @@ require_once('components/navbar.inc.php');
                     <!-- Grid column: Featured Post -->
                     <div class="col-md-6 mb-3">
 
-                        <div class="card text-center">
+                        <div class="card border-0 text-center">
                             
                             <div class="card-img-top">
                                 <?php the_post_thumbnail( array('class'=> 'img-responsive z-depth-1-half mt-2')); ?>
@@ -206,7 +206,7 @@ require_once('components/navbar.inc.php');
                     <!-- Grid column: Featured Post -->
                     <div class="col-md-6 mb-3">
 
-                        <div class="card text-center">
+                        <div class="card border-0 text-center">
                             
                             <div class="card-img-top">
                                 <?php the_post_thumbnail( array('class'=> 'img-responsive z-depth-1-half mt-2')); ?>
@@ -247,7 +247,7 @@ require_once('components/navbar.inc.php');
                     <!-- Grid column: Featured Post -->
                     <div class="col-md-6 mb-3">
 
-                        <div class="card text-center">
+                        <div class="card border-0 text-center">
                             
                             <div class="card-img-top">
                                 <?php the_post_thumbnail( array('class'=> 'img-responsive z-depth-1-half mt-2')); ?>
@@ -288,7 +288,7 @@ require_once('components/navbar.inc.php');
                     <!-- Grid column: Featured Post -->
                     <div class="col-md-6 mb-3">
 
-                        <div class="card text-center">
+                        <div class="card border-0 text-center">
                             
                             <div class="card-img-top">
                                 <?php the_post_thumbnail( array('class'=> 'img-responsive z-depth-1-half mt-2')); ?>
